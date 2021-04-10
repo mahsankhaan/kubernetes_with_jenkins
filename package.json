@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-express-simple",
+  "version": "0.1.0",
+  "description": "Simple Node.js Express application",
+  "license": "Apache-2.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appsody/stacks.git",
+    "directory": "incubator/nodejs-express/templates/simple"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "~6.1.0",
+    "request": "^2.88.0"
+  },
+  "dependencies": {
+    "ejs": "^3.0.2",
+    "express": "^4.17.1"
+  }
+}
