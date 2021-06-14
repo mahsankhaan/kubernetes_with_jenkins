@@ -1,26 +1,14 @@
-def gitSHA
-
 pipeline {
-  agent {
-    kubernetes {
-      defaultContainer 'jnlp'
-    }
-  }
-
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
-        script {
-          gitSHA = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
+    agent any
+ 
+    tools {nodejs "node"}
+ 
+    stages {
+ 
+        stage('Cloning Git') {
+            steps {
+                git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
+            }
         }
-      }
     }
-    stage('Test') {
-      steps {
-        container('nodejs') {
-          sh "node --version"
-
-        }
-      }
-    }
+}
