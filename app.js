@@ -6,7 +6,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 app.get("/", function(req,res){
    // res.render("admin_login");
       res.render("admin-login");
@@ -29,6 +29,6 @@ else{
 }
 });
 var server = app.listen(port, function () {
-  console.log("Server listening on " + port);
+  console.log("Server listening to checking " + port);
 })
 module.exports.app = app;
