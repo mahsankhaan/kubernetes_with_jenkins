@@ -29,6 +29,6 @@ else{
 }
 });
 var server = app.listen(port, function () {
-  console.log("Server listening to checking " + port);
+  console.log("Server listening again " + port);
 })
 module.exports.app = app;
