@@ -11,6 +11,13 @@
 
    stages {
     
+        stage('version') {
+            steps {
+sh "docker version"
+            }
+        }
+    
+    
         stage('Clone git repo') {
             steps {
                    git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
