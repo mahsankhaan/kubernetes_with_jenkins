@@ -24,31 +24,6 @@ pipeline {
             }
         }
  
-        stage('Build image') {
-          steps{
-            script {
-               dockerImage = docker.build dockerhuburl + ":$BUILD_NUMBER"
-
-            }
-          }
-        }
  
-        stage('Deploy image') {
-          steps{
-            script {
-              docker.withRegistry(dockerregistry, dockerhubcredentials ) {
-                dockerImage.push("${env.BUILD_NUMBER}")
-                dockerImage.push("latest")
-              }
-            }
-          }
-        }
- 
-        stage('Remove image') {
-          steps{
-            sh "docker rmi $dockerhuburl:$BUILD_NUMBER"
-          }
-      
-}
    }
    }
