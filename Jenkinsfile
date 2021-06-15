@@ -10,20 +10,21 @@
     tools {nodejs "node"}
  
    stages {
- 
-    stage('plugins'){
-     script {
-     def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins() plugins.each {println "${it.getShortName()}: ${it.getVersion()}"}
-     }
-    }
-   
-    
+
+     
         stage('Clone git repo') {
             steps {
                    git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
 
             }
         }
+    
+    stage('plugins'){
+     script {
+     def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins() plugins.each {println "${it.getShortName()}: ${it.getVersion()}"}
+     }
+    }
+    
  
         stage('Install Node.js dependencies') {
             steps {
