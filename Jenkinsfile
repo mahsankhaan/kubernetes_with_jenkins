@@ -8,24 +8,15 @@
         dockerhubcredentials = 'dockerhub'
     }
     tools {nodejs "node"}
- 
-   stages {
 
-     
+   
+    
         stage('Clone git repo') {
             steps {
                    git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
 
             }
         }
-    
-    stage('plugins'){
-     steps{
-     script {
-     def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins() plugins.each {println "${it.getShortName()}: ${it.getVersion()}"}
-     }
-    }
-    }
  
         stage('Install Node.js dependencies') {
             steps {
@@ -34,15 +25,14 @@
             }
         }
  
-        stage('Build image') {
+       stage('Build image') {
           steps{
-                    
             script {
-                  def newApp = docker.build "ahsanoffical/jenkins:${env.BUILD_TAG}"
-
+              dockerImage = docker.build(dockerhuburl + ":$BUILD_NUMBER")
             }
           }
         }
+ 
  
    }
  }
