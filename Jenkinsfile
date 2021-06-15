@@ -9,7 +9,7 @@
     }
     tools {nodejs "node"}
 
-   
+   stages {
     
         stage('Clone git repo') {
             steps {
@@ -34,6 +34,6 @@
         }
  
  
-   }
- }
    
+ }
+ }
