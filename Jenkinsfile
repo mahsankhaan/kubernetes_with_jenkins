@@ -7,7 +7,14 @@
         githuburl = "mahsankhaan/kubernetes_with_jenkins"
         dockerhubcredentials = 'dockerhub'
     }
-    tools {nodejs "node"}
+    tools {
+     nodejs "node"
+          
+          
+              'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+
+          
+          }
 
    stages {
     
