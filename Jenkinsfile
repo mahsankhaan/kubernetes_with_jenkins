@@ -28,8 +28,10 @@
         stage('Build image') {
           steps{
             script {
+             
+                               def newApp = docker.build "ahsanoffical/jenkins:${env.BUILD_TAG}"
 
-sh 'docker login -u ahsanoffical -p ahsan.123  https://registry.hub.docker.com'
+
             }
           }
         }
