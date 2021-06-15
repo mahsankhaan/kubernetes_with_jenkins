@@ -8,21 +8,10 @@
         dockerhubcredentials = 'dockerhub'
     }
     tools {
-     nodejs "node" ,
-          
-          
-            docker  'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
-
-          
-          }
+     nodejs "node"    
+         }
 
    stages {
-    
-        stage('version') {
-            steps {
-sh "docker version"
-            }
-        }
     
     
         stage('Clone git repo') {
