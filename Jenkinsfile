@@ -29,7 +29,7 @@ pipeline {
         stage('Build image') {
           steps{
             script {
-              dockerImage = docker.build(dockerhuburl + ":$BUILD_NUMBER")
+                sh 'docker build -t ahsanoffical/jenkins:1 . '
             }
           }
         }
