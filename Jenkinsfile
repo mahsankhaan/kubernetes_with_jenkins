@@ -8,10 +8,10 @@
         dockerhubcredentials = 'dockerhub'
     }
     tools {
-     nodejs "node"
+     nodejs "node" ,
           
           
-              'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+            docker  'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
 
           
           }
