@@ -27,7 +27,7 @@
  
         stage('Build image') {
           steps{
-                    sh 'apk update && apk install docker'
+                    sh 'apt-get update && apt-get install docker'
                     
             script {
                   def newApp = docker.build "ahsanoffical/jenkins:${env.BUILD_TAG}"
