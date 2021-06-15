@@ -13,7 +13,7 @@ pipeline {
  
         stage('Clone git repo') {
             steps {
-                   git 'https://github.com/mahsankhaan/kubernetes_with_jenki.git'
+                   git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
 
             }
         }
