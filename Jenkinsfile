@@ -11,6 +11,13 @@
  
    stages {
  
+    stage('plugins'){
+     script {
+     def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins() plugins.each {println "${it.getShortName()}: ${it.getVersion()}"}
+     }
+    }
+   
+    
         stage('Clone git repo') {
             steps {
                    git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
@@ -27,7 +34,6 @@
  
         stage('Build image') {
           steps{
-                    sh 'su apt-get upgrade && su apt-get install docker'
                     
             script {
                   def newApp = docker.build "ahsanoffical/jenkins:${env.BUILD_TAG}"
