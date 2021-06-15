@@ -21,7 +21,6 @@ pipeline {
         stage('Install Node.js dependencies') {
             steps {
                 sh 'npm install'
-                sudo apt-get install docker.io
 
             }
         }
