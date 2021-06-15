@@ -1,13 +1,41 @@
-pipeline {
-  agent any
+ pipeline {
+    agent any
 
-  stages {
-    stage('Test') {
-      steps {
-        container('nodejs') {
-          sh "node --version"
-        }
-      }
+    environment {
+        dockerregistry = 'https://registry.hub.docker.com'
+        dockerhuburl = "ahsanoffical/jenkins"
+        githuburl = "mahsankhaan/kubernetes_with_jenkins"
+        dockerhubcredentials = 'dockerhub'
     }
-  }
-}
+    tools {nodejs "node"}
+ 
+   stages {
+ 
+        stage('Clone git repo') {
+            steps {
+                   git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
+
+            }
+        }
+ 
+        stage('Install Node.js dependencies') {
+            steps {
+                sh 'npm install'
+
+            }
+        }
+ 
+        stage('Build image') {
+          steps{
+                    sh 'apk update && apk install docker'
+                    
+            script {
+                  def newApp = docker.build "ahsanoffical/jenkins:${env.BUILD_TAG}"
+
+            }
+          }
+        }
+ 
+   }
+ }
+   
