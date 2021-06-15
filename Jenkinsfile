@@ -7,12 +7,9 @@
         githuburl = "mahsankhaan/kubernetes_with_jenkins"
         dockerhubcredentials = 'dockerhub'
     }
-    tools {
-     nodejs "node"    
-         }
+    tools {nodejs "node"}
 
    stages {
-    
     
         stage('Clone git repo') {
             steps {
@@ -28,14 +25,15 @@
             }
         }
  
-     stage('Build') {
-  steps {
-    container('build') {
-        sh 'apk update && apk install docker'
-        sh 'docker build -t application .'
-      }
-    }
-  }
-}
+       stage('Build image') {
+          steps{
+            script {
+              dockerImage = docker.build(dockerhuburl + ":$BUILD_NUMBER")
+            }
+          }
+        }
  
+ 
+   
+ }
  }
