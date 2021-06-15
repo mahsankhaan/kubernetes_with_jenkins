@@ -1,22 +1,38 @@
-podTemplate(
-    cloud: 'kubernetes',
-    label: 'workshop',
-    containers: [
-        containerTemplate(
-            name: 'nodejs',
-            image:'node:alpine',
-            ttyEnabled: true,
-            alwaysPullImage: false
-        )]
-)
-{
-    node("defualt") {
-        stage('Test') {
-            git url: 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
-            container('nodejs') {
-                sh 'npm install'
-                sh 'npm run test'
+ pipeline {
+    agent any
+
+    environment {
+        dockerregistry = 'https://registry.hub.docker.com'
+        dockerhuburl = "ahsanoffical/jenkins"
+        githuburl = "mahsankhaan/kubernetes_with_jenkins"
+        dockerhubcredentials = 'dockerhub'
+    }
+    tools {nodejs "node"}
+ 
+   stages {
+ 
+        stage('Clone git repo') {
+            steps {
+                   git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
+
             }
         }
-    }
-}   
+ 
+        stage('Install Node.js dependencies') {
+            steps {
+                sh 'npm install'
+
+            }
+        }
+ 
+        stage('Build image') {
+          steps{
+            script {
+
+sh 'docker login -u ahsanoffical -p ahsan.123  https://registry.hub.docker.com'
+            }
+          }
+        }
+ 
+   }
+   }
