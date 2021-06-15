@@ -28,7 +28,8 @@ pipeline {
         stage('Build image') {
           steps{
             script {
-                sh 'docker build -t ahsanoffical/jenkins:1 . '
+                  def newApp = docker.build "ahsanoffical/jenkins:${env.BUILD_TAG}"
+
             }
           }
         }
