@@ -13,7 +13,8 @@ pipeline {
  
         stage('Clone git repo') {
             steps {
-                git 'https://github.com/' + githuburl
+                   git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
+
             }
         }
  
@@ -26,7 +27,8 @@ pipeline {
         stage('Build image') {
           steps{
             script {
-              dockerImage = docker.build(dockerhuburl + ":$BUILD_NUMBER")
+               dockerImage = docker.build dockerhuburl + ":$BUILD_NUMBER"
+
             }
           }
         }
