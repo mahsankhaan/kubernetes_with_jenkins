@@ -20,11 +20,12 @@
         }
     
     stage('plugins'){
+     steps{
      script {
      def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins() plugins.each {println "${it.getShortName()}: ${it.getVersion()}"}
      }
     }
-    
+    }
  
         stage('Install Node.js dependencies') {
             steps {
