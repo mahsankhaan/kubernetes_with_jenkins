@@ -7,7 +7,7 @@ podTemplate(
             image:'node:alpine',
             ttyEnabled: true,
             alwaysPullImage: false
-        ),
+        )
     ],
     volumes: [
         hostPathVolume(
