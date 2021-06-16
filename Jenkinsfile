@@ -18,7 +18,7 @@ podTemplate(
 )
 
 {
-    agent any {
+    node("workshop") {
         stage('Test') {
             git url: 'https://github.com/volaka/jenkins-nodejs-app.git'
             container('nodejs') {
