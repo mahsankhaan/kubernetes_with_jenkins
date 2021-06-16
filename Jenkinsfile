@@ -13,7 +13,7 @@ podTemplate(yaml: '''
         args:
         - 99d
     ''') {
-    node('check') {
+    node("check") {
       container('busybox') {
         echo POD_CONTAINER // displays 'busybox'
         sh 'hostname'
