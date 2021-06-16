@@ -25,17 +25,16 @@
             }
         }
  
-       stage('Deploy k8s') {
+        stage('Apply Kubernetes Files') {
       steps {
-        kubernetesDeploy(
-          kubeconfigId: 'k8s',
-          configs: 'k8s.yaml',
-          enableConfigSubstitution: true
-        )
+          withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | kubectl apply -f -'
+          sh 'kubectl apply -f service.yaml'
+        }
       }
-    }
  
  
    
+ }
  }
  }
