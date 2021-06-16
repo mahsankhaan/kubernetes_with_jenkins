@@ -20,13 +20,6 @@ spec:
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
-       - name: dind
-        image: docker:18.05-dind
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - name: jenkins-home
-          mountPath: /var/lib/docker
       volumes:
       - name: jenkins-home
         emptyDir: { }
