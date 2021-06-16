@@ -1,29 +1,41 @@
-podTemplate(yaml: '''
-    apiVersion: v1
-    kind: Pod
-    spec:
-      containers:
-      - name: maven
-        image: maven:3.8.1-jdk-8
-        command:
-        - sleep
-        args:
-        - 99d
-      - name: golang
-        image: golang:1.16.5
-        command:
-        - sleep
-        args:
-        - 99d
-''') {
-  node(POD_LABEL) {
-    stage('Get a Maven project') {
-      git 'https://github.com/jenkinsci/kubernetes-plugin.git'
-      container('maven') {
-        stage('Build a Maven project') {
-          sh 'mvn -B -ntp clean install'
+ pipeline {
+    agent any
+
+    environment {
+        dockerregistry = 'https://registry.hub.docker.com'
+        dockerhuburl = "ahsanoffical/jenkins"
+        githuburl = "mahsankhaan/kubernetes_with_jenkins"
+        dockerhubcredentials = 'dockerhub'
+    }
+    tools {nodejs "node"}
+
+   stages {
+    
+        stage('Clone git repo') {
+            steps {
+                   git 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
+
+            }
         }
+ 
+        stage('Install Node.js dependencies') {
+            steps {
+                sh 'npm install'
+
+            }
+        }
+ 
+       stage('Deploy k8s') {
+      steps {
+        kubernetesDeploy(
+          kubeconfigId: 'k8s',
+          configs: 'k8s.yaml',
+          enableConfigSubstitution: true
+        )
       }
     }
-  }
-}
+ 
+ 
+   
+ }
+ }
