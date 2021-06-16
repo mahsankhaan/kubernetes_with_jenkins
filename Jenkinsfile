@@ -16,3 +16,15 @@ podTemplate(
         )
     ]
 )
+
+{
+    agent any {
+        stage('Test') {
+            git url: 'https://github.com/volaka/jenkins-nodejs-app.git'
+            container('nodejs') {
+                sh 'npm install'
+                sh 'npm run test'
+            }
+        }
+        
+}
