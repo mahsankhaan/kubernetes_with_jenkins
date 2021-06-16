@@ -18,21 +18,12 @@
             }
         }
  
-        stage('Install Node.js dependencies') {
-            steps {
-                sh 'npm install'
-
-            }
-        }
- 
-stage('Deploy k8s') {
+   stage('Apply Kubernetes Files') {
       steps {
-        kubernetesDeploy(
-          kubeconfigId: 'k8s',
-          configs: 'k8s.yaml',
-          enableConfigSubstitution: true
-        )
+          withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'kubectl get pods -n jenkins'
+        }
       }
-    }
+ 
  }
  }
