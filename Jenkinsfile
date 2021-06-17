@@ -2,13 +2,7 @@ podTemplate(
     cloud: 'kubernetes',
     label: 'workshop',
     containers: [
-        containerTemplate(
-            name: 'nodejs',
-            image:'node:alpine',
-            ttyEnabled: true,
-            alwaysPullImage: false
-        ),
-         containerTemplate(
+     tainerTemplate(
                     image: 'docker', 
                     name: 'docker', 
                     command: 'cat', 
@@ -23,17 +17,11 @@ podTemplate(
     ]
 )
 {
-    node("workshop") {
-        stage('Test') {
-            git url: 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
-            container('nodejs') {
-                sh 'npm install'
-            }
-        }
-
+ 
         stage('Build') {
             git url: 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
             container('docker') {
+                sh 'systemctl start docker'
                 sh 'docker version'
             }
         }
