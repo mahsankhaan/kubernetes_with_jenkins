@@ -6,7 +6,7 @@ Jenkins is an open source automation server which can be used to automate all so
 Kubernetes: 
 Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation
 
-In this tutorial, we will learn about CI&CD using Jenkins on IBM Kubernetes service. We will use [Helm](https://helm.sh/) a package manager for Kubernetes to configure Jenkins.
+In this tutorial, we will learn about CI&CD using Jenkins on IBM Kubernetes service. 
 
 
 ## Prerequisites
@@ -21,7 +21,7 @@ You need the following tools to complete the steps in this tutorial:
 1. [Access IBM Kubernetes service](#step-1-Access-IBM-Kubernetes-service)
 1. [Access IBM Kubernetes service](#step-2-Access-IBM-kubernetes-service)
 1. [Install Jenkins with YAML files](#step-3-create-a-persistent-volume)
-1. [Access Jenkins dashboard & login]()
+1. [Access Jenkins dashboard & login](#-Step-4-Access-Jenkins-dashboard-&-login)
 
 
  
