@@ -176,4 +176,4 @@ kubectl describe service jenkins -n jenkins | grep Endpoint
    1. Label: This is the tracking mechanism in Jenkins. We will target this pod later in the pipeline using this label.
    1. Containers: this is the section we define containers in the pod. It uses ContainerTemplate
    1. volumes: Volume binding configuration in Kubernetes pod spec. Binding docker socket to pod so we can build docker containers in build stage.
-
+   1. node: script tells Jenkins to target a pod. "workshop" is the label that we want Jenkins to create for this pipeline.
