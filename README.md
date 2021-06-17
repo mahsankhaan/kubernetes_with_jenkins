@@ -123,4 +123,10 @@ kubectl apply -f jenkins-sa.yaml
   
   ![GitHub Logo](images/s3.png)
 
+* In Jenkins URL , get the URL with 
+
+```
+kubectl describe service jenkins -n jenkins | grep Endpoint
+```
+
 * Select Test connection output must be __Connected to Kubernetes v1.19.9+IKS__
