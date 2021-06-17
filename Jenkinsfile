@@ -8,14 +8,13 @@ podTemplate(
             ttyEnabled: true,
             alwaysPullImage: false
         ),
-    ],
-            containers: [
-                containerTemplate(
+         containerTemplate(
                     image: 'docker', 
                     name: 'docker', 
                     command: 'cat', 
-                    ttyEnabled: true)
-                    ],
+                    ttyEnabled: true
+                    ),
+               ],
     volumes: [
         hostPathVolume(
             mountPath: '/var/run/docker.sock',
