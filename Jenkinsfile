@@ -25,7 +25,7 @@ podTemplate(
                 sh 'docker version'
             }
         }
-    }
+    
 }
 
 
