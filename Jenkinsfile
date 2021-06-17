@@ -2,7 +2,7 @@ podTemplate(
     cloud: 'kubernetes',
     label: 'workshop',
     containers: [
-     tainerTemplate(
+     containerTemplate(
                     image: 'docker', 
                     name: 'docker', 
                     command: 'cat', 
