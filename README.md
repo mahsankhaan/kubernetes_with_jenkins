@@ -120,4 +120,7 @@ kubectl apply -f jenkins-sa.yaml
 
 * Under kubernetes cloud details > Credentials select __Add__ > Jenkins
   Kind= secret file , upload config file (~./kube/config)
+  
+  ![GitHub Logo](images/s3.png)
+
 * Select Test connection output must be __Connected to Kubernetes v1.19.9+IKS__
