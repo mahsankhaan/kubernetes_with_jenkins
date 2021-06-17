@@ -17,7 +17,7 @@ podTemplate(
     ]
 )
 {
- 
+  node("workshop") {
         stage('Build') {
             git url: 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
             container('docker') {
@@ -25,7 +25,7 @@ podTemplate(
                 sh 'docker version'
             }
         }
-    
+  }
 }
 
 
