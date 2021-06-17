@@ -112,7 +112,7 @@ In Kubernetes, service accounts are used to provide an identity for pods.
 kubectl apply -f jenkins-sa.yaml
 ```
 
-### Step 6. Configure Jenkins and containers
+### Step 6. Configure Kubernetes Plugin
 In order for Jenkins to be able to launch pods for running jobs, we have to configure the service account credentials.
 
 * Nagivate to Manage Jenkins > Configure System > Cloud > Add a new cloud, then select “Kubernetes”
