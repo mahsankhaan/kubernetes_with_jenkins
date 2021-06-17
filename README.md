@@ -130,3 +130,10 @@ kubectl describe service jenkins -n jenkins | grep Endpoint
 ```
 
 * Select Test connection output must be __Connected to Kubernetes v1.19.9+IKS__
+
+
+### Step 7. Create pipeline
+
+* From dashboard, on left select __New Item__
+* Enter name __Demo__ and select __Pipeline__ from below options
+* 
