@@ -126,7 +126,7 @@ ibmcloud cr namespace-add jenkins-registry-\<UNIQUE_NAME_ACROSS_IBM>
 ```
 
 * Now we need API key to access it from Jenkins Pipeline.
- __WARNING:__ You will not be able to see this key again, so be sure to copy and save it
+ __WARNING:__ You will not be able to see this key again, so be sure to copy and save it. Ever 1 hour later this token expires
 
 ```
 ibmcloud iam api-key-create ibm-cloud-api-key-for-jenkins
