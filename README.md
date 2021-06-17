@@ -137,8 +137,13 @@ ibmcloud iam api-key-create ibm-cloud-api-key-for-jenkins
 ```
 kubectl create secret generic ibm-cloud-api-key --from-literal apikey=<replace_your_ibm_cloud_api_key_for> --namespace jenkins
 ```
+__Note:__ You will use this secret when configuring the private registry access in the Jenkins job.
 
+2.To configure service account with the secret for pulling images, use the following commands:
 
+```
+kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "all-icr-io"}]}' -n default
+```
 
 ### Step 7. Configure Kubernetes Plugin
 
