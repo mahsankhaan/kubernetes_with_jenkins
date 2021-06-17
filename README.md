@@ -136,4 +136,4 @@ kubectl describe service jenkins -n jenkins | grep Endpoint
 
 * From dashboard, on left select __New Item__
 * Enter name __Demo__ and select __Pipeline__ from below options
-* 
+* On next page from Pipeline Definition select __script from SCM__ , click Git and insert this giturl.
