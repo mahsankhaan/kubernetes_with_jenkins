@@ -172,8 +172,8 @@ kubectl describe service jenkins -n jenkins | grep Endpoint
 * On next page from Pipeline Definition select __script from SCM__ , click Git and insert this [giturl](https://github.com/mahsankhaan/kubernetes_with_jenkins.git).
 * From left select __Build Now__
 *  Description of [Jenkinsfile]()
-1. Cloud: Kubernetes. This is preconfigured for us in the Jenkins installation. We will show this configuration after the pipeline.
-1. Label: This is the tracking mechanism in Jenkins. We will target this pod later in the pipeline using this label.
-1. Containers: this is the section we define containers in the pod. It uses ContainerTemplate
-1. volumes: Volume binding configuration in Kubernetes pod spec. Binding docker socket to pod so we can build docker containers in build stage.
+   1. Cloud: Kubernetes. This is preconfigured for us in the Jenkins installation. We will show this configuration after the pipeline.
+   1. Label: This is the tracking mechanism in Jenkins. We will target this pod later in the pipeline using this label.
+   1. Containers: this is the section we define containers in the pod. It uses ContainerTemplate
+   1. volumes: Volume binding configuration in Kubernetes pod spec. Binding docker socket to pod so we can build docker containers in build stage.
 
