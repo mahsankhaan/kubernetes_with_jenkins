@@ -21,8 +21,7 @@ podTemplate(
         stage('Build') {
             git url: 'https://github.com/mahsankhaan/kubernetes_with_jenkins.git'
             container('docker') {
-                sh 'systemctl start docker'
-                sh 'docker version'
+                sh ' docker build -t getting-started .'
             }
         }
   }
