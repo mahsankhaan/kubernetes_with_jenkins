@@ -7,6 +7,7 @@ podTemplate(
                     name: 'docker', 
                     command: 'cat', 
                     ttyEnabled: true
+
                     ),
                ],
     volumes: [
