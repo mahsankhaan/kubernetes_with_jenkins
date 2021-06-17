@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: webapp:1
+        image: de.icr.io/jenkinsregistry-test/myapp
         # for local development against minikube registry
         #imagePullPolicy: Never        
         ports:
