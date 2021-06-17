@@ -112,7 +112,35 @@ In Kubernetes, service accounts are used to provide an identity for pods.
 kubectl apply -f jenkins-sa.yaml
 ```
 
-### Step 6. Configure Kubernetes Plugin
+### Configure IBM Container Registry & Kubernetes API keys
+
+We need to configure this because we will push our container images to it. 
+[Note: We will run all the commands from CLI]
+
+* Create registry
+
+```
+ibmcloud cr login
+ibmcloud cr namespace-add jenkins-registry-\<UNIQUE_NAME_ACROSS_IBM>
+```
+
+* Now we need API key to access it from Jenkins Pipeline.
+ __WARNING:__ You will not be able to see this key again, so be sure to copy and save it
+
+```
+ibmcloud iam api-key-create ibm-cloud-api-key-for-jenkins
+```
+
+* You need two Kubernetes secrets:
+1. To create the secret for pushing images and Kubernetes deployments, use the following commands:
+
+```
+kubectl create secret generic ibm-cloud-api-key --from-literal apikey=<replace_your_ibm_cloud_api_key_for> --namespace jenkins
+```
+
+
+
+### Step 7. Configure Kubernetes Plugin
 
 * First Go to Manage Jenkins from the menu and then Manage Plugins. From the Available tab, find the Kubernetes plugin and install it.
 
@@ -132,7 +160,7 @@ kubectl describe service jenkins -n jenkins | grep Endpoint
 * Select Test connection output must be __Connected to Kubernetes v1.19.9+IKS__
 
 
-### Step 7. Create pipeline
+### Step 8. Create pipeline
 
 * From dashboard, on left select __New Item__
 * Enter name __Demo__ and select __Pipeline__ from below options
