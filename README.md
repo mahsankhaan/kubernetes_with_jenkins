@@ -170,7 +170,7 @@ kubectl describe service jenkins -n jenkins | grep Endpoint
 
 ### Step 8. Create pipeline
 
-* Before creating pipeline make the changes in the [Jenkinfile](https://github.com/mahsankhaan/kubernetes_with_jenkins/blob/master/Jenkinsfile):
+* Before creating pipeline make the changes in the [Jenkinfile](github.com/mahsankhaan/kubernetes_with_jenkins/blob/master/Jenkinsfile)
    1. Under __build__ stage replace_your_namespace
    1. Under __deploy__ stage , put you cluster name and namespace 
 
