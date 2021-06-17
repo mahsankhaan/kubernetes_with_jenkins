@@ -113,10 +113,11 @@ kubectl apply -f jenkins-sa.yaml
 ```
 
 ### Step 6. Configure Kubernetes Plugin
-In order for Jenkins to be able to launch pods for running jobs, we have to configure the service account credentials.
 
-* Nagivate to Manage Jenkins > Configure System > Cloud > Add a new cloud, then select “Kubernetes”
+* First Go to Manage Jenkins from the menu and then Manage Plugins. From the Available tab, find the Kubernetes plugin and install it.
+
+* Nagivate to Manage Jenkins > Manage Nodes & Cloud > Cloud > Add a new cloud, then select “Kubernetes”
 
 * Under kubernetes cloud details > Credentials select __Add__ > Jenkins
-
+  Kind= secret file , upload config file (~./kube/config)
 * Select Test connection output must be __Connected to Kubernetes v1.19.9+IKS__
